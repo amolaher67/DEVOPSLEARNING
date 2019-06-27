@@ -1,0 +1,32 @@
+                                1. Create a Microservice Project with docker enabled
+                                2. Make changes to the files locate of dockerfile - moved it 
+                                3. Start and check docker - basic commands
+                                4. fire a build restore command
+
+
+                                5. Publish the app to docker folder - so that it ready to be deployed
+                                                dotnet publish -o obj/Docker/publish
+                                6. build and deploy it
+                                                docker build -t walletpayment .
+
+                                7. Run the images
+                                                docker run -d -p 18000:80 --name containerimagename imagename(fundmicroservices)
+
+                                8. test the image on browser http://localhost:18000:80/api/values
+
+
+
+                                9. deploy this container to azure container registry (ACR) (deploy the above image)
+                                                docker login hexawaretrainingcontailerregistry.azurecr.io 
+
+                                                a. docker stop containerId
+                                                               (is needed because image is running in this container and thus cannot be push - accessed denied error)                  
+                                                
+                                                b. tag the image
+                                                                docker tag  eventregistration hexawaretrainingcontailerregistry.azurecr.io/demo/eventimage
+                                                c. push the image                                             
+                                                                docker push hexawaretrainingcontailerregistry.azurecr.io 
+
+
+                                10. Deploy this to AKS 
+                                11. start consumption 
